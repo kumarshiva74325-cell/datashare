@@ -185,8 +185,28 @@ background:rgba(255,255,255,0.08);
 <h1>Share Your Unused Data</h1>
 <p>Connect with people and help them stay online.</p>
 </section>
-
+<div class="form-box">
+<h2>Post Data Offer</h2>
 <div class="container">
+  <div class="form-box">
+
+<h2>User Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="signup()">Sign Up</button>
+
+<button onclick="login()">Login</button>
+
+<button onclick="logout()">Logout</button>
+
+<p id="currentUser" style="color:black;margin-top:10px;">
+Not Logged In
+</p>
+
+</div>
 
 <div class="form-box">
 
@@ -380,7 +400,108 @@ displayOffers();
 displayOffers();
 
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCVuG68S7GBYxCgu4lAx5HNl4lbx5nfinw",
+authDomain: "datashare-6e29b.firebaseapp.com",
+projectId: "datashare-6e29b",
+storageBucket: "datashare-6e29b.firebasestorage.app",
+messagingSenderId: "918210510065",
+appId: "1:918210510065:web:10b3aab63af97699c1bd50",
+measurementId: "G-ET4K4P797B"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.signup = async function(){
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+try{
+
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert("Signup Successful");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+window.login = async function(){
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+alert("Login Successful");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+window.logout = async function(){
+
+await signOut(auth);
+
+alert("Logged Out");
+
+};
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById("currentUser").innerText =
+"Logged in as: " + user.email;
+
+}else{
+
+document.getElementById("currentUser").innerText =
+"Not Logged In";
+
+}
+
+});
+
+</script>
 </body>
 </html>
 ```
