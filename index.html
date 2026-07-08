@@ -469,7 +469,93 @@ displayOffers();
 </script>
 
 <!-- Part 3 (Firebase) will be added here -->
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_PROJECT.firebasestorage.app",
+messagingSenderId: "YOUR_SENDER_ID",
+appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.signup = async function(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+try{
+
+await createUserWithEmailAndPassword(auth,email,password);
+
+alert("Signup Successful");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+window.login = async function(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(auth,email,password);
+
+alert("Login Successful");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+window.logout = async function(){
+
+await signOut(auth);
+
+alert("Logged Out");
+
+};
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+document.getElementById("currentUser").innerHTML =
+"Logged in as : " + user.email;
+
+}else{
+
+document.getElementById("currentUser").innerHTML =
+"Not Logged In";
+
+}
+
+});
+
+</script>
 </body>
 </html>
-</div>
+
