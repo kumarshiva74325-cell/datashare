@@ -1,194 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DataShare V4</title>
+<title>DataShare V5</title>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-min-height:100vh;
-color:white;
-}
-
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
-position:sticky;
-top:0;
-}
-
-.logo{
-font-size:28px;
-font-weight:bold;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
-}
-
-.hero{
-text-align:center;
-padding:70px 20px;
-}
-
-.hero h1{
-font-size:55px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:20px;
-opacity:.9;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-.form-box{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-margin-bottom:30px;
-color:black;
-}
-
-.form-box h2{
-margin-bottom:20px;
-color:#1e3a8a;
-}
-
-input,
-select{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border:1px solid #ccc;
-border-radius:10px;
-font-size:16px;
-}
-
-button{
-padding:14px 25px;
-background:#2563eb;
-border:none;
-border-radius:10px;
-color:white;
-cursor:pointer;
-font-size:16px;
-margin-right:10px;
-transition:.3s;
-}
-
-button:hover{
-background:#1d4ed8;
-}
-
-.delete-btn{
-background:#dc2626;
-}
-
-.delete-btn:hover{
-background:#b91c1c;
-}
-
-.offers-title{
-text-align:center;
-font-size:34px;
-margin:25px 0;
-}
-
-.offer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-color:black;
-padding:20px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,.2);
-}
-
-.card h3{
-color:#1e3a8a;
-margin-bottom:10px;
-}
-
-.card p{
-margin-bottom:8px;
-}
-
-.stats{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-padding:40px;
-}
-
-.stat-box{
-background:rgba(255,255,255,.12);
-padding:25px;
-border-radius:15px;
-text-align:center;
-min-width:200px;
-}
-
-.stat-box h2{
-font-size:40px;
-}
-
-footer{
-text-align:center;
-padding:25px;
-margin-top:40px;
-background:rgba(255,255,255,.08);
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+<!-- Navigation -->
+
 <nav>
 
 <div class="logo">
+
 📶 DataShare
+
 </div>
 
-<div class="nav-links">
+<div class="menu">
 
 <a href="#">Home</a>
 
-<a href="#">Offers</a>
+<a href="#offers">Offers</a>
 
-<a href="#">Profile</a>
+<a href="#post">Post Offer</a>
+
+<a href="#">About</a>
 
 <a href="#">Contact</a>
 
@@ -196,21 +40,35 @@ background:rgba(255,255,255,.08);
 
 </nav>
 
+<!-- Hero Section -->
+
 <section class="hero">
 
-<h1>Share Your Unused Data</h1>
+<h1>
+
+Share Your Unused Mobile Data
+
+</h1>
 
 <p>
-Connect with people and help them stay online.
+
+Help others by sharing or selling your unused mobile data.
+
 </p>
 
 </section>
 
 <div class="container">
 
-<div class="form-box">
+<!-- Login -->
 
-<h2>User Login</h2>
+<div class="box">
+
+<h2>
+
+Login / Signup
+
+</h2>
 
 <input
 type="email"
@@ -223,28 +81,42 @@ id="password"
 placeholder="Password">
 
 <button onclick="signup()">
+
 Sign Up
+
 </button>
 
 <button onclick="login()">
+
 Login
+
 </button>
 
 <button onclick="logout()">
+
 Logout
+
 </button>
 
-<p
-id="currentUser"
-style="margin-top:15px;">
+<p id="currentUser">
+
 Not Logged In
+
 </p>
 
 </div>
 
-<div class="form-box">
+<!-- Post Offer -->
 
-<h2>Post Data Offer</h2>
+<div
+class="box"
+id="post">
+
+<h2>
+
+Post Data Offer
+
+</h2>
 
 <input
 type="text"
@@ -259,7 +131,9 @@ placeholder="Mobile Number">
 <select id="network">
 
 <option value="">
+
 Select Network
+
 </option>
 
 <option>Jio</option>
@@ -287,45 +161,59 @@ type="date"
 id="validity">
 
 <button onclick="addOffer()">
+
 Post Offer
+
 </button>
+
 </div>
+<!-- Search -->
 
 <input
 type="text"
 id="searchBox"
-placeholder="🔍 Search by Name, Network or Location"
-onkeyup="displayOffers()">
+placeholder="🔍 Search by Name, Network or Location">
 
-<br><br>
+<!-- Offers -->
 
-<h2 class="offers-title">
+<h2 id="offers">
+
 Available Data Offers
+
 </h2>
 
-<div
-class="offer-grid"
-id="offers">
+<div id="offerList">
 
 </div>
 
-</div>
+<!-- Statistics -->
 
 <div class="stats">
 
-<div class="stat-box">
-<h2 id="offerCount">0</h2>
-<p>Offers Posted</p>
+<div class="stat">
+
+<h3 id="offerCount">0</h3>
+
+<p>Offers</p>
+
 </div>
 
-<div class="stat-box">
-<h2 id="userCount">0</h2>
-<p>Registered Users</p>
+<div class="stat">
+
+<h3 id="userCount">0</h3>
+
+<p>Users</p>
+
 </div>
 
-<div class="stat-box">
-<h2 id="dataCount">0</h2>
-<p>Total Data (GB)</p>
+<div class="stat">
+
+<h3 id="dataCount">0 GB</h3>
+
+<p>Total Data</p>
+
+</div>
+
 </div>
 
 </div>
@@ -333,229 +221,17 @@ id="offers">
 <footer>
 
 <p>
+
 © 2026 DataShare | Built by Shiva Kumar
+
 </p>
 
 </footer>
 
-<script>
+<script src="script.js"></script>
 
-let offers = [];
+<script type="module" src="firebase.js"></script>
 
-function addOffer(){
-
-const name = document.getElementById("name").value.trim();
-const mobile = document.getElementById("mobile").value.trim();
-const network = document.getElementById("network").value;
-const data = document.getElementById("data").value;
-const location = document.getElementById("location").value.trim();
-const validity = document.getElementById("validity").value;
-
-if(name==="" || network==="" || data===""){
-alert("Please fill all required fields.");
-return;
-}
-
-offers.push({
-name,
-mobile,
-network,
-data,
-location,
-validity
-});
-
-clearForm();
-
-displayOffers();
-
-}
-
-function clearForm(){
-
-document.getElementById("name").value="";
-document.getElementById("mobile").value="";
-document.getElementById("network").value="";
-document.getElementById("data").value="";
-document.getElementById("location").value="";
-document.getElementById("validity").value="";
-
-}
-
-function displayOffers(){
-
-const search =
-document.getElementById("searchBox").value.toLowerCase();
-
-let html="";
-let totalData=0;
-let visibleOffers=0;
-
-offers.forEach((offer,index)=>{
-
-if(
-!offer.name.toLowerCase().includes(search) &&
-!offer.network.toLowerCase().includes(search) &&
-!offer.location.toLowerCase().includes(search)
-){
-return;
-}
-
-visibleOffers++;
-totalData += Number(offer.data);
-
-html += `
-<div class="card">
-
-<h3>${offer.name}</h3>
-
-<p>📱 ${offer.mobile || "Not Provided"}</p>
-
-<p>📶 ${offer.network}</p>
-
-<p><strong>${offer.data} GB Available</strong></p>
-
-<p>📍 ${offer.location || "-"}</p>
-
-<p>📅 ${offer.validity || "-"}</p>
-
-<button onclick="requestOffer('${offer.name}')">
-Request Data
-</button>
-
-<button class="delete-btn"
-onclick="deleteOffer(${index})">
-Delete
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById("offers").innerHTML = html;
-
-document.getElementById("offerCount").innerText =
-visibleOffers;
-
-document.getElementById("userCount").innerText =
-offers.length;
-
-document.getElementById("dataCount").innerText =
-totalData;
-
-}
-
-function requestOffer(name){
-
-alert("Request sent to " + name);
-
-}
-
-function deleteOffer(index){
-
-if(confirm("Delete this offer?")){
-
-offers.splice(index,1);
-
-displayOffers();
-
-}
-
-}
-
-displayOffers();
-
-</script>
-
-<!-- Part 3 (Firebase) will be added here -->
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-signOut,
-onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT.firebasestorage.app",
-messagingSenderId: "YOUR_SENDER_ID",
-appId: "YOUR_APP_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.signup = async function(){
-
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-try{
-
-await createUserWithEmailAndPassword(auth,email,password);
-
-alert("Signup Successful");
-
-}catch(error){
-
-alert(error.message);
-
-}
-
-};
-
-window.login = async function(){
-
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-try{
-
-await signInWithEmailAndPassword(auth,email,password);
-
-alert("Login Successful");
-
-}catch(error){
-
-alert(error.message);
-
-}
-
-};
-
-window.logout = async function(){
-
-await signOut(auth);
-
-alert("Logged Out");
-
-};
-
-onAuthStateChanged(auth,(user)=>{
-
-if(user){
-
-document.getElementById("currentUser").innerHTML =
-"Logged in as : " + user.email;
-
-}else{
-
-document.getElementById("currentUser").innerHTML =
-"Not Logged In";
-
-}
-
-});
-
-</script>
 </body>
-</html>
 
+</html>
