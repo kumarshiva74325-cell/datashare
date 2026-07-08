@@ -113,3 +113,9 @@ displayOffers();
 document
 .getElementById("searchBox")
 .addEventListener("keyup",displayOffers);
+window.signup = signup;
+window.login = login;
+window.logout = logout;
+window.addOffer = addOffer;
+window.deleteOffer = deleteOffer;
+window.requestOffer = requestOffer;
