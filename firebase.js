@@ -18,12 +18,12 @@ doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT.appspot.com",
-messagingSenderId: "YOUR_SENDER_ID",
-appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCVuG68S7GBYxCgu4lAx5HNl4lbx5nfinw",
+  authDomain: "datashare-6e29b.firebaseapp.com",
+  projectId: "datashare-6e29b",
+  storageBucket: "datashare-6e29b.firebasestorage.app",
+  messagingSenderId: "918210510065",
+  appId: "1:918210510065:web:10b3aab63af97699c1bd50"
 };
 
 const app = initializeApp(firebaseConfig);
