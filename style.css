@@ -1,0 +1,171 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+min-height:100vh;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px;
+}
+
+.hero h1{
+font-size:52px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.9;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+.box{
+background:white;
+color:black;
+padding:25px;
+margin-bottom:25px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.box h2{
+color:#1e3a8a;
+margin-bottom:20px;
+}
+
+input,
+select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px 22px;
+border-radius:10px;
+cursor:pointer;
+margin-right:10px;
+margin-top:5px;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#searchBox{
+margin:20px 0;
+}
+
+#offers{
+text-align:center;
+margin:30px 0;
+font-size:32px;
+}
+
+#offerList{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+color:black;
+padding:20px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.card h3{
+color:#1e3a8a;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:8px;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin:40px 0;
+}
+
+.stat{
+background:rgba(255,255,255,.12);
+padding:25px;
+border-radius:15px;
+text-align:center;
+min-width:180px;
+}
+
+.stat h3{
+font-size:38px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(255,255,255,.08);
+margin-top:30px;
+}
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+}
+
+.menu{
+margin-top:15px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+}
