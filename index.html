@@ -1,10 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DataShare V3</title>
+
+<title>DataShare V4</title>
 
 <style>
 
@@ -12,7 +13,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI,sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -27,7 +28,9 @@ justify-content:space-between;
 align-items:center;
 padding:20px 10%;
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
+position:sticky;
+top:0;
 }
 
 .logo{
@@ -38,12 +41,13 @@ font-weight:bold;
 .nav-links a{
 color:white;
 text-decoration:none;
-margin-left:20px;
+margin-left:25px;
+font-weight:500;
 }
 
 .hero{
 text-align:center;
-padding:80px 20px;
+padding:70px 20px;
 }
 
 .hero h1{
@@ -53,11 +57,11 @@ margin-bottom:15px;
 
 .hero p{
 font-size:20px;
-opacity:0.9;
+opacity:.9;
 }
 
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:20px;
 }
@@ -66,43 +70,44 @@ padding:20px;
 background:white;
 padding:25px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 margin-bottom:30px;
+color:black;
 }
 
 .form-box h2{
-color:#111827;
 margin-bottom:20px;
+color:#1e3a8a;
 }
 
-input,select{
+input,
+select{
 width:100%;
-padding:15px;
+padding:14px;
 margin-bottom:15px;
-border:1px solid #ddd;
+border:1px solid #ccc;
 border-radius:10px;
 font-size:16px;
 }
 
 button{
 padding:14px 25px;
-border:none;
 background:#2563eb;
-color:white;
+border:none;
 border-radius:10px;
+color:white;
 cursor:pointer;
 font-size:16px;
-transition:0.3s;
+margin-right:10px;
+transition:.3s;
 }
 
 button:hover{
 background:#1d4ed8;
-transform:translateY(-2px);
 }
 
 .delete-btn{
 background:#dc2626;
-margin-left:10px;
 }
 
 .delete-btn:hover{
@@ -111,27 +116,27 @@ background:#b91c1c;
 
 .offers-title{
 text-align:center;
-font-size:35px;
-margin-bottom:20px;
+font-size:34px;
+margin:25px 0;
 }
 
 .offer-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:20px;
 }
 
 .card{
 background:white;
-padding:20px;
-border-radius:20px;
 color:black;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+padding:20px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
 .card h3{
-margin-bottom:10px;
 color:#1e3a8a;
+margin-bottom:10px;
 }
 
 .card p{
@@ -141,13 +146,13 @@ margin-bottom:8px;
 .stats{
 display:flex;
 justify-content:center;
-gap:40px;
-padding:40px;
+gap:30px;
 flex-wrap:wrap;
+padding:40px;
 }
 
 .stat-box{
-background:rgba(255,255,255,0.1);
+background:rgba(255,255,255,.12);
 padding:25px;
 border-radius:15px;
 text-align:center;
@@ -161,48 +166,77 @@ font-size:40px;
 footer{
 text-align:center;
 padding:25px;
-margin-top:50px;
-background:rgba(255,255,255,0.08);
+margin-top:40px;
+background:rgba(255,255,255,.08);
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
-<div class="logo">📶 DataShare</div>
+
+<div class="logo">
+📶 DataShare
+</div>
 
 <div class="nav-links">
+
 <a href="#">Home</a>
+
 <a href="#">Offers</a>
+
 <a href="#">Profile</a>
+
 <a href="#">Contact</a>
+
 </div>
+
 </nav>
 
 <section class="hero">
+
 <h1>Share Your Unused Data</h1>
-<p>Connect with people and help them stay online.</p>
+
+<p>
+Connect with people and help them stay online.
+</p>
+
 </section>
-<div class="form-box">
-<h2>Post Data Offer</h2>
+
 <div class="container">
-  <div class="form-box">
+
+<div class="form-box">
 
 <h2>User Login</h2>
 
-<input type="email" id="email" placeholder="Email">
+<input
+type="email"
+id="email"
+placeholder="Email">
 
-<input type="password" id="password" placeholder="Password">
+<input
+type="password"
+id="password"
+placeholder="Password">
 
-<button onclick="signup()">Sign Up</button>
+<button onclick="signup()">
+Sign Up
+</button>
 
-<button onclick="login()">Login</button>
+<button onclick="login()">
+Login
+</button>
 
-<button onclick="logout()">Logout</button>
+<button onclick="logout()">
+Logout
+</button>
 
-<p id="currentUser" style="color:black;margin-top:10px;">
+<p
+id="currentUser"
+style="margin-top:15px;">
 Not Logged In
 </p>
 
@@ -212,39 +246,68 @@ Not Logged In
 
 <h2>Post Data Offer</h2>
 
-<input type="text" id="name" placeholder="Enter Name">
+<input
+type="text"
+id="name"
+placeholder="Your Name">
 
-<input type="tel" id="mobile" placeholder="Mobile Number">
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number">
 
 <select id="network">
-<option value="">Select Network</option>
+
+<option value="">
+Select Network
+</option>
+
 <option>Jio</option>
+
 <option>Airtel</option>
+
 <option>Vi</option>
+
 <option>BSNL</option>
+
 </select>
 
-<input type="number" id="data" placeholder="Available Data (GB)">
+<input
+type="number"
+id="data"
+placeholder="Available Data (GB)">
 
-<input type="text" id="location" placeholder="Location">
+<input
+type="text"
+id="location"
+placeholder="Location">
 
-<input type="date" id="validity">
+<input
+type="date"
+id="validity">
 
-<button onclick="addOffer()">Post Offer</button>
-
+<button onclick="addOffer()">
+Post Offer
+</button>
 </div>
 
 <input
 type="text"
 id="searchBox"
-placeholder="🔍 Search Offers"
+placeholder="🔍 Search by Name, Network or Location"
 onkeyup="displayOffers()">
 
 <br><br>
 
-<h2 class="offers-title">Available Offers</h2>
+<h2 class="offers-title">
+Available Data Offers
+</h2>
 
-<div class="offer-grid" id="offers"></div>
+<div
+class="offer-grid"
+id="offers">
+
+</div>
 
 </div>
 
@@ -257,36 +320,39 @@ onkeyup="displayOffers()">
 
 <div class="stat-box">
 <h2 id="userCount">0</h2>
-<p>Users</p>
+<p>Registered Users</p>
 </div>
 
 <div class="stat-box">
 <h2 id="dataCount">0</h2>
-<p>Total GB</p>
+<p>Total Data (GB)</p>
 </div>
 
 </div>
 
 <footer>
-<p>© 2026 DataShare | Built by Shiva Kumar</p>
+
+<p>
+© 2026 DataShare | Built by Shiva Kumar
+</p>
+
 </footer>
 
 <script>
 
-let offers =
-JSON.parse(localStorage.getItem("offers")) || [];
+let offers = [];
 
 function addOffer(){
 
-const name=document.getElementById("name").value;
-const mobile=document.getElementById("mobile").value;
-const network=document.getElementById("network").value;
-const data=document.getElementById("data").value;
-const location=document.getElementById("location").value;
-const validity=document.getElementById("validity").value;
+const name = document.getElementById("name").value.trim();
+const mobile = document.getElementById("mobile").value.trim();
+const network = document.getElementById("network").value;
+const data = document.getElementById("data").value;
+const location = document.getElementById("location").value.trim();
+const validity = document.getElementById("validity").value;
 
-if(!name || !network || !data){
-alert("Please fill all required fields");
+if(name==="" || network==="" || data===""){
+alert("Please fill all required fields.");
 return;
 }
 
@@ -299,12 +365,13 @@ location,
 validity
 });
 
-localStorage.setItem(
-"offers",
-JSON.stringify(offers)
-);
+clearForm();
 
 displayOffers();
+
+}
+
+function clearForm(){
 
 document.getElementById("name").value="";
 document.getElementById("mobile").value="";
@@ -312,28 +379,29 @@ document.getElementById("network").value="";
 document.getElementById("data").value="";
 document.getElementById("location").value="";
 document.getElementById("validity").value="";
+
 }
 
 function displayOffers(){
 
+const search =
+document.getElementById("searchBox").value.toLowerCase();
+
 let html="";
 let totalData=0;
-
-const search=
-document.getElementById("searchBox")
-? document.getElementById("searchBox").value.toLowerCase()
-: "";
+let visibleOffers=0;
 
 offers.forEach((offer,index)=>{
 
 if(
 !offer.name.toLowerCase().includes(search) &&
 !offer.network.toLowerCase().includes(search) &&
-!(offer.location || "").toLowerCase().includes(search)
+!offer.location.toLowerCase().includes(search)
 ){
 return;
 }
 
+visibleOffers++;
 totalData += Number(offer.data);
 
 html += `
@@ -355,8 +423,7 @@ html += `
 Request Data
 </button>
 
-<button
-class="delete-btn"
+<button class="delete-btn"
 onclick="deleteOffer(${index})">
 Delete
 </button>
@@ -366,16 +433,17 @@ Delete
 
 });
 
-document.getElementById("offers").innerHTML=html;
+document.getElementById("offers").innerHTML = html;
 
-document.getElementById("offerCount").innerText=
+document.getElementById("offerCount").innerText =
+visibleOffers;
+
+document.getElementById("userCount").innerText =
 offers.length;
 
-document.getElementById("userCount").innerText=
-offers.length;
-
-document.getElementById("dataCount").innerText=
+document.getElementById("dataCount").innerText =
 totalData;
+
 }
 
 function requestOffer(name){
@@ -386,122 +454,22 @@ alert("Request sent to " + name);
 
 function deleteOffer(index){
 
+if(confirm("Delete this offer?")){
+
 offers.splice(index,1);
 
-localStorage.setItem(
-"offers",
-JSON.stringify(offers)
-);
-
 displayOffers();
+
+}
 
 }
 
 displayOffers();
 
 </script>
-<script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+<!-- Part 3 (Firebase) will be added here -->
 
-import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-signOut,
-onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyCVuG68S7GBYxCgu4lAx5HNl4lbx5nfinw",
-authDomain: "datashare-6e29b.firebaseapp.com",
-projectId: "datashare-6e29b",
-storageBucket: "datashare-6e29b.firebasestorage.app",
-messagingSenderId: "918210510065",
-appId: "1:918210510065:web:10b3aab63af97699c1bd50",
-measurementId: "G-ET4K4P797B"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.signup = async function(){
-
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-try{
-
-await createUserWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-alert("Signup Successful");
-
-}catch(error){
-
-alert(error.message);
-
-}
-
-};
-
-window.login = async function(){
-
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-try{
-
-await signInWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-alert("Login Successful");
-
-}catch(error){
-
-alert(error.message);
-
-}
-
-};
-
-window.logout = async function(){
-
-await signOut(auth);
-
-alert("Logged Out");
-
-};
-
-onAuthStateChanged(auth,(user)=>{
-
-if(user){
-
-document.getElementById("currentUser").innerText =
-"Logged in as: " + user.email;
-
-}else{
-
-document.getElementById("currentUser").innerText =
-"Not Logged In";
-
-}
-
-});
-
-</script>
 </body>
 </html>
-```
+</div>
