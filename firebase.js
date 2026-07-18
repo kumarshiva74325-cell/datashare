@@ -1,12 +1,12 @@
 // Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import {
 getAuth,
 createUserWithEmailAndPassword,
 signInWithEmailAndPassword,
 signOut,
 onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.2.2/firebase-auth.js";
 
 import {
 getFirestore,
@@ -15,7 +15,7 @@ addDoc,
 getDocs,
 deleteDoc,
 doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.2.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVuG68S7GBYxCgu4lAx5HNl4lbx5nfinw",
